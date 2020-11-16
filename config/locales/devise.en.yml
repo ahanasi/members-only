@@ -62,6 +62,7 @@ en:
       not_locked: "was not locked"
       blank: "%{attribute} can't be blank"
       invalid: "%{attribute} isn't valid" 
+      too_short: "%{attribute} is too short. (minimum is %{count} characters)"
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"

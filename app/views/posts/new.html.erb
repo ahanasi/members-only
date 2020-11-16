@@ -1,5 +1,15 @@
-<h1>New Post</h1>
+<section class="section">
+  <div class="container">
+    <div class="columns is-mobile is-centered is-vcentered">
+      <div class="column is-three-fifths">
+        <h1 class="title">New Post</h1>
+				<div class="field is-grouped">
+					<div class="control">
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+					</div>
+				</div>
+        <%= render "form", post: @post %>
+    	</div>
+    </div>
+	</div>
+</section>

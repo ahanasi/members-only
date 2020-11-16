@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= stylesheet_link_tag "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
@@ -20,6 +21,40 @@
         <p class="alert"><%= alert %></p>
       </div>  
     <% end %>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <%= image_tag "brand-logo.png", style: "width: 130px; height: 35px" %>
+        <% end %>
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+            <% if user_signed_in? %>
+              <p class="control">
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "button is-primary" %>
+              </p>
+              <% else %>
+              <p class="control">
+                <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
+              </p>
+              <p class="control">
+                <%= link_to "Log In", new_user_session_path, class: "button is-light" %>
+              </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
