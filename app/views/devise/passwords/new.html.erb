@@ -1,18 +1,41 @@
-<h2>Forgot your password?</h2>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered is-mobile is-vcentered">
+      <div class="column is-half">
+        <h2 class="title">Forgot your password?</h2>
+        <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          
+          <% if f.error_notification %>
+            <div class="notification is-warning">
+                <%= f.error_notification %>
+            </div>
+          <% end %>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
+          <div class="field">
+            <div class="control">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        wrapper: false,
+                        label_html: { class: "label" },
+                        input_html: { class: "input" } %>
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <%= f.button :submit, "Send me password reset instructions", class: "button is-link" %>
+        <% end %>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+
+<div class="container">
+  <div class="columns is-mobile is-centered is-vcentered">
+    <div class="column is-half">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
