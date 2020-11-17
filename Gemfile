@@ -39,6 +39,9 @@ gem "devise", "~> 4.7", ">= 4.7.3"
 # Bulma CSS
 gem "bulma-rails", "~> 0.9.0"
 
+#Font Awesome
+gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.5"
+
 #Simple Form
 gem "simple_form", "~> 5.0", ">= 5.0.3"
 
