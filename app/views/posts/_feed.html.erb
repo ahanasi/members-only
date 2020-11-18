@@ -1,0 +1,60 @@
+<div class="column is-three-fifths">
+    <% if user_signed_in? %>
+        <article class="media box">
+            <figure class="media-left">
+              <div class="columns is-centered is-mobile is-vcentered">
+                <div class="column has-text-centered">
+                  <div class="image is-48x48">
+                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <div class="media-content">
+              <div class="content">
+                <a href="/posts/new">
+                  <input type="text" class="input" placeholder="Create Post">
+                </a>
+              </div>
+            </div>
+        </article>
+    <% end %>
+  
+    <% @posts.each do |post| %>
+    <div class="box">
+        <article class="media">
+        <figure class="media-left">
+            <div class="columns is-centered is-mobile is-vcentered">
+            <div class="column has-text-centered">
+                <div class="image is-64x64">
+                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                </div>
+                <% if user_signed_in? %>
+                <small><%= post.user.name %></small>
+                <% end %>
+            </div>
+            </div>
+        </figure>
+        <div class="media-content">
+            <div class="content">
+            <p>
+                <strong><%= post.title %></strong>
+                <br>
+                <%= post.post %>
+            </p>
+            </div>
+            <nav class="level is-mobile">
+            <div class="level-left">
+                <a class="level-item">
+                <span class="icon is-small"><i class="fa fa-reply"></i></span>
+                </a>
+                <a class="level-item">
+                <span class="icon is-small"><i class="fa fa-heart"></i></span>
+                </a>
+            </div>
+            </nav>
+        </div>
+        </article>
+    </div>
+    <% end %>  
+</div>
