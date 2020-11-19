@@ -45,6 +45,9 @@ gem "font-awesome-rails", "~> 4.7", ">= 4.7.0.5"
 #Simple Form
 gem "simple_form", "~> 5.0", ">= 5.0.3"
 
+#Gravatar
+gem "gravatar_image_tag", "~> 1.2"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 

@@ -5,8 +5,7 @@
               <div class="columns is-centered is-mobile is-vcentered">
                 <div class="column has-text-centered">
                   <div class="image is-48x48">
-                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                  </div>
+                    <%= gravatar_image_tag(current_user.email, size: 48, alt: "current_user.name", :gravatar => { :secure => true }, class: "is-rounded") %> 
                 </div>
               </div>
             </figure>
@@ -22,12 +21,12 @@
   
     <% @posts.each do |post| %>
     <div class="box">
-        <article class="media">
+      <article class="media">
         <figure class="media-left">
             <div class="columns is-centered is-mobile is-vcentered">
             <div class="column has-text-centered">
                 <div class="image is-64x64">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                  <%= gravatar_image_tag(post.user.email, size: 64, alt: "post.user.name", :gravatar => { :secure => true }, class: "is-rounded") %>
                 </div>
                 <% if user_signed_in? %>
                 <small><%= post.user.name %></small>
@@ -37,24 +36,14 @@
         </figure>
         <div class="media-content">
             <div class="content">
-            <p>
-                <strong><%= post.title %></strong>
-                <br>
-                <%= post.post %>
-            </p>
+              <p>
+                  <strong><%= post.title %></strong>
+                  <br>
+                  <%= post.post %>
+              </p>
             </div>
-            <nav class="level is-mobile">
-            <div class="level-left">
-                <a class="level-item">
-                <span class="icon is-small"><i class="fa fa-reply"></i></span>
-                </a>
-                <a class="level-item">
-                <span class="icon is-small"><i class="fa fa-heart"></i></span>
-                </a>
-            </div>
-            </nav>
         </div>
-        </article>
+      </article>
     </div>
     <% end %>  
 </div>
