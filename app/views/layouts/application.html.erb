@@ -22,55 +22,57 @@
       </div>  
     <% end %>
     <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <%= link_to root_path, class: "navbar-item" do %>
-          <%= image_tag "brand-logo4.png", style: "width: 150px;" %>
-        <% end %>
-
-        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-
-      <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-          <% if user_signed_in? %>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link is-arrowless">
-                <span class="button">
-                  <figure class="image navbar-item is-48x48">
-                      <%= gravatar_image_tag(current_user.email, size: 48, alt: "current_user.name", :gravatar => { :secure => true }, class: "is-rounded") %>
-                  </figure>
-                </span>
-              </a>
-              <div class="navbar-dropdown">
-              <%= link_to "My Profile", edit_user_registration_path, class: "navbar-item" %>
-              <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
-            </div> 
-            </div>
-            
-          <% else %>
-
-            <div class="navbar-item">
-              <div class="field is-grouped">
-                <p class="control">
-                </p>
-                <p class="control">
-                  <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
-                </p>
-                <p class="control">
-                  <%= link_to "Log In", new_user_session_path, class: "button is-light" %>
-                </p>
-              </div>
-            </div>
-          
+      <div class="container is-max-desktop">
+        <div class="navbar-brand">
+          <%= link_to root_path, class: "navbar-item" do %>
+            <%= image_tag "brand-logo4.png", style: "width: 150px;" %>
           <% end %>
-          
-          
-          
-          
+
+          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+          <div class="navbar-end">
+            <% if user_signed_in? %>
+              <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link is-arrowless">
+                  <span class="button">
+                    <figure class="image navbar-item is-48x48">
+                        <%= gravatar_image_tag(current_user.email, size: 48, alt: "current_user.name", :gravatar => { :secure => true }, class: "is-rounded") %>
+                    </figure>
+                  </span>
+                </a>
+                <div class="navbar-dropdown">
+                <%= link_to "My Profile", edit_user_registration_path, class: "navbar-item" %>
+                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+              </div> 
+              </div>
+              
+            <% else %>
+
+              <div class="navbar-item">
+                <div class="field is-grouped">
+                  <p class="control">
+                  </p>
+                  <p class="control">
+                    <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
+                  </p>
+                  <p class="control">
+                    <%= link_to "Log In", new_user_session_path, class: "button is-light" %>
+                  </p>
+                </div>
+              </div>
+            
+            <% end %>
+            
+            
+            
+            
+          </div>
         </div>
       </div>
     </nav>
